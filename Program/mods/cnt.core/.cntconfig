@@ -1,0 +1,8 @@
+# This is the module declaration file for CNT CORE.
+
+name = CNT CORE
+namespace = cnt.core
+description = Core module for CNT
+author = CNT Development Team
+version = 1.0.0
+license = GPL-3.0

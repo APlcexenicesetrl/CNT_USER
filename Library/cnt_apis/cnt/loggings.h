@@ -52,7 +52,8 @@ namespace cnt
             format_("[{timestamp}] - {name} - {level} - {message}"),
             useColor_(true),
             consoleOutputEnabled_(true),
-            file_(nullptr)
+            file_(nullptr),
+            fileCover_(false)
         {
             setDefaultColors();
         }
@@ -67,7 +68,8 @@ namespace cnt
             format_(std::move(other.format_)),
             useColor_(other.useColor_),
             consoleOutputEnabled_(other.consoleOutputEnabled_),
-            levelColors_(std::move(other.levelColors_))
+            levelColors_(std::move(other.levelColors_)),
+            fileCover_(false)
         {
         }
 
@@ -82,6 +84,7 @@ namespace cnt
                 useColor_ = other.useColor_;
                 consoleOutputEnabled_ = other.consoleOutputEnabled_;
                 levelColors_ = std::move(other.levelColors_);
+                fileCover_ = std::move(other.fileCover_);
             }
             return *this;
         }
@@ -123,12 +126,25 @@ namespace cnt
             return *this;
         }
 
+        Logger& enableFileCover(bool enable)
+        {
+            fileCover_ = enable;
+            return *this;
+        }
+
+        Logger& setName(std::string name)
+        {
+			name_ = std::move(name);
+            return *this;
+        }
+
         // Getters
         const std::string& getName() const { return name_; }
         LogLevel getLevel() const { return level_; }
         const std::string& getFormat() const { return format_; }
         bool isColorEnabled() const { return useColor_; }
         bool isConsoleOutputEnabled() const { return consoleOutputEnabled_; }
+        bool isFileCoverEnabled() const { return fileCover_; }
         const std::map<LogLevel, LogColor>& getLevelColors() const { return levelColors_; }
         std::ofstream& getOutputFile()
         {
@@ -154,6 +170,7 @@ namespace cnt
         std::string format_;
         bool useColor_;
         bool consoleOutputEnabled_;
+        bool fileCover_;
         std::map<LogLevel, LogColor> levelColors_;
     };
 

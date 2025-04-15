@@ -6,11 +6,16 @@ class client {
 private:
 	String CNT_Path;
 public:
-	client(String _RUNPATH) : CNT_Path(_RUNPATH);
+	client(String _RUNPATH) : CNT_Path(_RUNPATH) {}
 	~client();
 
 	void install(String);
 	void uninstall(String);
+
+	bool fail();
 private:
 
 };
+
+void NewCNTPATH(String);
+

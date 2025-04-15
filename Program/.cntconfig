@@ -1,0 +1,6 @@
+#
+# The file is the global configuration file for CNT
+# It is used to set the default values for all the projects
+#
+
+startup = false

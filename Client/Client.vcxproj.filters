@@ -29,6 +29,12 @@
     <ClInclude Include="src\client.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\winFunct.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\language.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">

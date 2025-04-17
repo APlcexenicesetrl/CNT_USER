@@ -44,7 +44,7 @@ int main(int argc, char **argv) {
 			if (addPath == 'y' || addPath == 'Y') {
 				logs.info("Adding new CNT_PATH to the system...");
 				// Add new path to system environment variables
-				setEnvVar(L"CNT_PATH", newPath);
+				SetPermanentEnvironmentVariable(L"CNT_PATH", newPath);
 				break;
 			}
 			else if (addPath == 'n' || addPath == 'N') {

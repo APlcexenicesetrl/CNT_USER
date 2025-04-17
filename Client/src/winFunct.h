@@ -2,22 +2,30 @@
 
 #include <filesystem>
 #include <Windows.h>
-#include <string>
+#include <cstring>
 
 typedef LPCWSTR String;
 
 namespace fs = std::filesystem;
 
-void setEnvVar(const std::wstring& name, const std::wstring& value) {
-#ifdef _WIN32
-    // Windows: Use WinAPI for direct control
-    SetEnvironmentVariableW(name.c_str(), value.c_str());
-#else
-    // POSIX: Convert to narrow string (UTF-8)
-    std::string narrowName(name.begin(), name.end());
-    std::string narrowValue(value.begin(), value.end());
-    setenv(narrowName.c_str(), narrowValue.c_str(), 1); // Overwrite if exists
-#endif
+bool SetPermanentEnvironmentVariable(LPCTSTR value, LPCTSTR data)
+{
+    HKEY hKey;
+    LPCTSTR keyPath = TEXT("System\\CurrentControlSet\\Control\\Session Manager\\Environment");
+    LSTATUS lOpenStatus = RegOpenKeyEx(HKEY_LOCAL_MACHINE, keyPath, 0, KEY_ALL_ACCESS, &hKey);
+    if (lOpenStatus == ERROR_SUCCESS)
+    {
+        LSTATUS lSetStatus = RegSetValueEx(hKey, value, 0, REG_SZ, (LPBYTE)data, strlen(data) + 1);
+        RegCloseKey(hKey);
+
+        if (lSetStatus == ERROR_SUCCESS)
+        {
+            SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, 0, (LPARAM)"Environment", SMTO_BLOCK, 100, NULL);
+            return true;
+        }
+    }
+
+    return false;
 }
 
 void deleteEnvVar(const std::wstring& name) {

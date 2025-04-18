@@ -31,7 +31,6 @@ namespace GUI
             ExtendsContentIntoTitleBar = true;
             // Replace system title bar with the WinUI TitleBar.
             SetTitleBar(AppTitleBar);
-            // ¡ü Add this. ¡ü
         }
     }
 }

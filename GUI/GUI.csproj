@@ -10,7 +10,6 @@
     <PublishProfile>win-$(Platform).pubxml</PublishProfile>
     <UseWinUI>true</UseWinUI>
     <EnableMsixTooling>true</EnableMsixTooling>
-    <RuntimeIdentifier>linux-x64</RuntimeIdentifier>
     <PublishTrimmed>false</PublishTrimmed>
     <Nullable>enable</Nullable>
   </PropertyGroup>

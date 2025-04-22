@@ -15,7 +15,7 @@ bool SetPermanentEnvironmentVariable(LPCTSTR value, LPCTSTR data)
     LSTATUS lOpenStatus = RegOpenKeyEx(HKEY_LOCAL_MACHINE, keyPath, 0, KEY_ALL_ACCESS, &hKey);
     if (lOpenStatus == ERROR_SUCCESS)
     {
-        LSTATUS lSetStatus = RegSetValueEx(hKey, value, 0, REG_SZ, (LPBYTE)data, strlen(data) + 1);
+        LSTATUS lSetStatus = RegSetValueEx(hKey, value, 0, REG_SZ, (LPBYTE)data, lstrlen(data) + 1);
         RegCloseKey(hKey);
 
         if (lSetStatus == ERROR_SUCCESS)

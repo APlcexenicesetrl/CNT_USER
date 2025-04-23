@@ -28,6 +28,7 @@
                 </StackPanel>
             </Grid>
         </Grid>
+        <!--
         <Grid Grid.Column="1">
             <Grid Height="200" VerticalAlignment="Top" Padding="20">
                 <TextBlock Text="APlcexenicesetrl ©️ [Version 1.0.0.0]" FontSize="15" Foreground="#091417"/>
@@ -43,5 +44,6 @@
                 </Grid.Background>
             </Grid>
         </Grid>
+        -->
     </Grid>
 </Page>

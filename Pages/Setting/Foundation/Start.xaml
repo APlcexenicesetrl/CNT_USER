@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="GUI.Pages.Setting.Foundation.Start"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GUI.Pages.Setting.Foundation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="Start" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
+        <StackPanel Grid.Row="1">
+            
+        </StackPanel>
+    </Grid>
+</Page>

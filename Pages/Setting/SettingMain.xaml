@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="GUI.Pages.Setting.SettingMain"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GUI.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <NavigationView x:Name="ObjectList" IsBackButtonVisible="Collapsed">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Icon="Go" Content="Foundation" Tag="Foundation" />
+                <NavigationViewItem Icon="FontColor" Content="Personalized" Tag="Personalized" />
+                <NavigationViewItem Icon="OtherUser" Content="Users" Tag="Users" />
+                <NavigationViewItem Icon="Download" Content="Download" Tag="Download" />
+                <NavigationViewItem Icon="Accept" Content="Activate" Tag="Activate"/>
+            </NavigationView.MenuItems>
+            <Frame x:Name="contentFrame"/>
+        </NavigationView>
+    </Grid>
+</Page>
